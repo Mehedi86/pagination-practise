@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [limit] = useState(6);
-  const [page, setPage] = useState(4);
+  const [page, setPage] = useState(1);
   const [items, setItems] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -59,7 +59,9 @@ function App() {
 
       {/* Pagination */}
       <div className="flex space-x-2">
-        {pages.map((num, idx)=> <button key={idx} className="p-2 rounded ">{num}</button>)}
+        <button onClick={() => setPage(prev => Math.max(prev - 1, 1))} className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50" disabled={page === 1}>Prev</button>
+        {pages.map((num, idx) => num === '...' ? <span key={idx} className="px-3 py-1 rounded">{num}</span> : <button onClick={() => setPage(num)} key={idx} className={`py-2 px-4 rounded ${page === num ? 'bg-blue-500 text-white font-bold' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}>{num}</button>)}
+        <button onClick={() => setPage(prev => Math.min(prev + 1, 10))} className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50" disabled={page === 10}>Next</button>
       </div>
     </div>
   );
