@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [limit] = useState(6);
+  const [limit] = useState(4);
   const [page, setPage] = useState(1);
   const [items, setItems] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
@@ -22,7 +22,8 @@ function App() {
 
   // Generate page buttons dynamically
   const getPageNumbers = () => {
-    const delta = 2;     //show 2 page button before and after current page
+
+    const delta = 2;  
     const range = [];
     const left = Math.max(2, page - delta);
     const right = Math.min(totalPages - 1, page + delta);
@@ -33,7 +34,7 @@ function App() {
     for (let i = left; i <= right; i++) {
       range.push(i);
     }
-    if (right === (totalPages - 1)) {
+    if (right < (totalPages - 1)) {
       range.push('...')
     }
     if (totalPages > 1) range.push(totalPages)
@@ -42,7 +43,6 @@ function App() {
   }
 
   const pages = getPageNumbers();
-  console.log(pages)
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
