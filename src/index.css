@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* <div className="flex space-x-2">
+        <button
+          onClick={() => setPage(p => Math.max(p - 1, 1))}
+          disabled={page === 1}
+          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+        >
+          Prev
+        </button>
+
+        {pages.map((num, idx) =>
+          num === "..." ? (
+            <span key={idx} className="px-3 py-1">
+              ...
+            </span>
+          ) : (
+            <button
+              key={idx}
+              onClick={() => setPage(num)}
+              className={`px-3 py-1 rounded ${
+                page === num
+                  ? "bg-blue-500 text-white font-bold"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+            >
+              {num}
+            </button>
+          )
+        )}
+
+        <button
+          onClick={() => setPage(p => Math.min(p + 1, totalPages))}
+          disabled={page === totalPages}
+          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div> */
